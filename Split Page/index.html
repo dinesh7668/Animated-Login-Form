@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Futuristic Login & Signup Portal — secure access with a stunning interface">
+    <title>Portal — Login & Signup</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Animated Background -->
+    <div class="bg-grid" id="bgGrid"></div>
+    <div class="bg-particles" id="bgParticles"></div>
+    <div class="bg-glow bg-glow--1"></div>
+    <div class="bg-glow bg-glow--2"></div>
+    <div class="bg-glow bg-glow--3"></div>
+
+
+    <!-- Warp Flash Overlay -->
+    <div class="portal__warp-flash" id="warpFlash"></div>
+
+    <!-- Main Container -->
+    <main class="portal" id="portal">
+        <!-- Left Panel — Branding -->
+        <section class="portal__brand" id="brandPanel">
+            <div class="brand__content">
+                <div class="brand__logo" id="logoMark">
+                    <svg viewBox="0 0 60 60" class="logo-svg">
+                        <polygon class="logo-hex" points="30,2 54,16 54,44 30,58 6,44 6,16"/>
+                        <defs>
+                            <linearGradient id="dpGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#8B1A1A"/>
+                                <stop offset="50%" stop-color="#CC2200"/>
+                                <stop offset="100%" stop-color="#E85D04"/>
+                            </linearGradient>
+                        </defs>
+                        <text class="logo-text" x="30" y="36" text-anchor="middle" fill="url(#dpGrad)" font-family="Inter, sans-serif" font-size="20" font-weight="700">DP</text>
+                    </svg>
+                </div>
+                <h1 class="brand__title">
+                    <span class="brand__title-line" id="brandLine1">Welcome to</span>
+                    <span class="brand__title-main" id="brandLine2">PORTAL</span>
+                </h1>
+                <p class="brand__subtitle" id="brandSub">
+                    <span class="typing-text" id="typingText"></span>
+                    <span class="typing-cursor">|</span>
+                </p>
+                <div class="brand__stats">
+                    <div class="stat">
+                        <span class="stat__number" data-count="2.4">0</span><span class="stat__unit">M+</span>
+                        <span class="stat__label">Active Users</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat__number" data-count="99.9">0</span><span class="stat__unit">%</span>
+                        <span class="stat__label">Uptime</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat__number" data-count="256">0</span><span class="stat__unit">-bit</span>
+                        <span class="stat__label">Encryption</span>
+                    </div>
+                </div>
+            </div>
+            <div class="brand__decoration">
+                <div class="hex-grid" id="hexGrid"></div>
+            </div>
+        </section>
+
+        <!-- Right Panel — Forms -->
+        <section class="portal__forms" id="formsPanel">
+            <!-- Morph Shape Background -->
+            <div class="form-morph" id="formMorph"></div>
+            
+            <!-- Toggle Switch -->
+            <div class="form-toggle" id="formToggle">
+                <button class="toggle-btn toggle-btn--active" id="toggleLogin" data-form="login">
+                    <span class="toggle-btn__text">Login</span>
+                    <span class="toggle-btn__indicator"></span>
+                </button>
+                <button class="toggle-btn" id="toggleSignup" data-form="signup">
+                    <span class="toggle-btn__text">Sign Up</span>
+                    <span class="toggle-btn__indicator"></span>
+                </button>
+                <div class="toggle-slider" id="toggleSlider"></div>
+            </div>
+
+            <!-- Form Container with 3D Flip -->
+            <div class="form-stage" id="formStage">
+                <!-- Login Form -->
+                <form class="auth-form auth-form--login auth-form--active" id="loginForm" autocomplete="off">
+                    <div class="form__header">
+                        <h2 class="form__title">
+                            <span class="title-bracket">[</span>
+                            Access Portal
+                            <span class="title-bracket">]</span>
+                        </h2>
+                        <p class="form__desc">Enter your credentials to continue</p>
+                    </div>
+
+                    <div class="form__fields">
+                        <div class="input-group" id="loginEmail">
+                            <div class="input-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                    <rect x="2" y="4" width="20" height="16" rx="3"/>
+                                    <path d="M2 7l10 7 10-7"/>
+                                </svg>
+                            </div>
+                            <input type="email" class="input-field" id="loginEmailInput" placeholder=" " required>
+                            <label class="input-label" for="loginEmailInput">Email Address</label>
+                            <div class="input-border"></div>
+                            <div class="input-glow"></div>
+                        </div>
+
+                        <div class="input-group" id="loginPassword">
+                            <div class="input-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                    <rect x="5" y="11" width="14" height="10" rx="2"/>
+                                    <path d="M8 11V7a4 4 0 118 0v4"/>
+                                    <circle cx="12" cy="16" r="1"/>
+                                </svg>
+                            </div>
+                            <input type="password" class="input-field" id="loginPasswordInput" placeholder=" " required>
+                            <label class="input-label" for="loginPasswordInput">Password</label>
+                            <button type="button" class="input-toggle-pass" id="loginTogglePass" aria-label="Toggle password visibility">
+                                <svg class="eye-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                                    <circle cx="12" cy="12" r="3"/>
+                                </svg>
+                                <svg class="eye-closed" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="display:none">
+                                    <path d="M17.94 17.94A10.07 10.07 0 0112 20c-7 0-11-8-11-8a18.45 18.45 0 015.06-5.94"/>
+                                    <path d="M9.9 4.24A9.12 9.12 0 0112 4c7 0 11 8 11 8a18.5 18.5 0 01-2.16 3.19"/>
+                                    <line x1="1" y1="1" x2="23" y2="23"/>
+                                </svg>
+                            </button>
+                            <div class="input-border"></div>
+                            <div class="input-glow"></div>
+                        </div>
+
+                        <div class="form__options">
+                            <label class="checkbox-container" id="rememberMe">
+                                <input type="checkbox" class="checkbox-input">
+                                <span class="checkbox-custom">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                                        <polyline points="20 6 9 17 4 12"/>
+                                    </svg>
+                                </span>
+                                <span class="checkbox-label">Remember me</span>
+                            </label>
+                            <a href="#" class="form__link" id="forgotPassword">Forgot Password?</a>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn-submit" id="loginSubmit">
+                        <span class="btn-submit__text">Login</span>
+                        <span class="btn-submit__icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="5" y1="12" x2="19" y2="12"/>
+                                <polyline points="12 5 19 12 12 19"/>
+                            </svg>
+                        </span>
+                        <div class="btn-submit__loading">
+                            <div class="spinner"></div>
+                        </div>
+                        <div class="btn-submit__ripple"></div>
+                    </button>
+
+                    <div class="form__divider">
+                        <span class="divider-line"></span>
+                        <span class="divider-text">or continue with</span>
+                        <span class="divider-line"></span>
+                    </div>
+
+                    <div class="social-auth">
+                        <button type="button" class="social-btn" id="googleAuth">
+                            <svg viewBox="0 0 24 24" width="20" height="20">
+                                <path fill="#EA4335" d="M5.27 9.76A7.08 7.08 0 0 1 12 5.04c1.69 0 3.22.59 4.42 1.56l3.31-3.31A11.97 11.97 0 0 0 12 0 12 12 0 0 0 .46 8.09l4.81 3.67z"/>
+                                <path fill="#34A853" d="M16.04 18.01A7.4 7.4 0 0 1 12 19.08a7.08 7.08 0 0 1-6.73-4.72l-4.81 3.67A12 12 0 0 0 12 24c3.07 0 5.84-1.15 7.96-3.04l-3.92-2.95z"/>
+                                <path fill="#4A90D9" d="M19.96 20.96A11.72 11.72 0 0 0 24 12.21c0-.83-.08-1.47-.24-2.21H12v4.56h6.73a5.97 5.97 0 0 1-2.69 3.85l3.92 2.55z"/>
+                                <path fill="#FBBC05" d="M5.27 14.36A7.2 7.2 0 0 1 4.92 12c0-.82.13-1.62.35-2.36L.46 6.09A12.08 12.08 0 0 0 0 12c0 1.94.46 3.77 1.29 5.39l3.98-3.03z"/>
+                            </svg>
+                            <span>Google</span>
+                        </button>
+                        <button type="button" class="social-btn" id="githubAuth">
+                            <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                                <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+                            </svg>
+                            <span>GitHub</span>
+                        </button>
+                    </div>
+
+                    <p class="form__footer">
+                        Don't have an account? 
+                        <button type="button" class="form__switch-btn" id="switchToSignup">Create one</button>
+                    </p>
+                </form>
+
+                <!-- Signup Form -->
+                <form class="auth-form auth-form--signup" id="signupForm" autocomplete="off">
+                    <div class="form__header">
+                        <h2 class="form__title">
+                            <span class="title-bracket">[</span>
+                            Create Account
+                            <span class="title-bracket">]</span>
+                        </h2>
+                        <p class="form__desc">Join the network — it only takes a moment</p>
+                    </div>
+
+                    <div class="form__fields">
+                        <div class="input-group" id="signupName">
+                            <div class="input-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                    <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/>
+                                    <circle cx="12" cy="7" r="4"/>
+                                </svg>
+                            </div>
+                            <input type="text" class="input-field" id="signupNameInput" placeholder=" " required>
+                            <label class="input-label" for="signupNameInput">Full Name</label>
+                            <div class="input-border"></div>
+                            <div class="input-glow"></div>
+                        </div>
+
+                        <div class="input-group" id="signupEmail">
+                            <div class="input-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                    <rect x="2" y="4" width="20" height="16" rx="3"/>
+                                    <path d="M2 7l10 7 10-7"/>
+                                </svg>
+                            </div>
+                            <input type="email" class="input-field" id="signupEmailInput" placeholder=" " required>
+                            <label class="input-label" for="signupEmailInput">Email Address</label>
+                            <div class="input-border"></div>
+                            <div class="input-glow"></div>
+                        </div>
+
+                        <div class="input-group" id="signupPassword">
+                            <div class="input-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                    <rect x="5" y="11" width="14" height="10" rx="2"/>
+                                    <path d="M8 11V7a4 4 0 118 0v4"/>
+                                    <circle cx="12" cy="16" r="1"/>
+                                </svg>
+                            </div>
+                            <input type="password" class="input-field" id="signupPasswordInput" placeholder=" " required minlength="8">
+                            <label class="input-label" for="signupPasswordInput">Password</label>
+                            <button type="button" class="input-toggle-pass" id="signupTogglePass" aria-label="Toggle password visibility">
+                                <svg class="eye-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                                    <circle cx="12" cy="12" r="3"/>
+                                </svg>
+                                <svg class="eye-closed" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="display:none">
+                                    <path d="M17.94 17.94A10.07 10.07 0 0112 20c-7 0-11-8-11-8a18.45 18.45 0 015.06-5.94"/>
+                                    <path d="M9.9 4.24A9.12 9.12 0 0112 4c7 0 11 8 11 8a18.5 18.5 0 01-2.16 3.19"/>
+                                    <line x1="1" y1="1" x2="23" y2="23"/>
+                                </svg>
+                            </button>
+                            <div class="input-border"></div>
+                            <div class="input-glow"></div>
+                        </div>
+
+                        <!-- Password Strength Meter -->
+                        <div class="password-strength" id="passwordStrength">
+                            <div class="strength-bars">
+                                <div class="strength-bar" id="str1"></div>
+                                <div class="strength-bar" id="str2"></div>
+                                <div class="strength-bar" id="str3"></div>
+                                <div class="strength-bar" id="str4"></div>
+                            </div>
+                            <span class="strength-text" id="strengthText">Password Strength</span>
+                        </div>
+
+                        <label class="checkbox-container" id="agreeTerms">
+                            <input type="checkbox" class="checkbox-input" required>
+                            <span class="checkbox-custom">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                                    <polyline points="20 6 9 17 4 12"/>
+                                </svg>
+                            </span>
+                            <span class="checkbox-label">I agree to the <a href="#" class="form__link">Terms</a> & <a href="#" class="form__link">Privacy Policy</a></span>
+                        </label>
+                    </div>
+
+                    <button type="submit" class="btn-submit" id="signupSubmit">
+                        <span class="btn-submit__text">Create Account</span>
+                        <span class="btn-submit__icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="5" y1="12" x2="19" y2="12"/>
+                                <polyline points="12 5 19 12 12 19"/>
+                            </svg>
+                        </span>
+                        <div class="btn-submit__loading">
+                            <div class="spinner"></div>
+                        </div>
+                        <div class="btn-submit__ripple"></div>
+                    </button>
+
+                    <div class="form__divider">
+                        <span class="divider-line"></span>
+                        <span class="divider-text">or continue with</span>
+                        <span class="divider-line"></span>
+                    </div>
+
+                    <div class="social-auth">
+                        <button type="button" class="social-btn" id="googleAuthSignup">
+                            <svg viewBox="0 0 24 24" width="20" height="20">
+                                <path fill="#EA4335" d="M5.27 9.76A7.08 7.08 0 0 1 12 5.04c1.69 0 3.22.59 4.42 1.56l3.31-3.31A11.97 11.97 0 0 0 12 0 12 12 0 0 0 .46 8.09l4.81 3.67z"/>
+                                <path fill="#34A853" d="M16.04 18.01A7.4 7.4 0 0 1 12 19.08a7.08 7.08 0 0 1-6.73-4.72l-4.81 3.67A12 12 0 0 0 12 24c3.07 0 5.84-1.15 7.96-3.04l-3.92-2.95z"/>
+                                <path fill="#4A90D9" d="M19.96 20.96A11.72 11.72 0 0 0 24 12.21c0-.83-.08-1.47-.24-2.21H12v4.56h6.73a5.97 5.97 0 0 1-2.69 3.85l3.92 2.55z"/>
+                                <path fill="#FBBC05" d="M5.27 14.36A7.2 7.2 0 0 1 4.92 12c0-.82.13-1.62.35-2.36L.46 6.09A12.08 12.08 0 0 0 0 12c0 1.94.46 3.77 1.29 5.39l3.98-3.03z"/>
+                            </svg>
+                            <span>Google</span>
+                        </button>
+                        <button type="button" class="social-btn" id="githubAuthSignup">
+                            <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                                <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+                            </svg>
+                            <span>GitHub</span>
+                        </button>
+                    </div>
+
+                    <p class="form__footer">
+                        Already have an account? 
+                        <button type="button" class="form__switch-btn" id="switchToLogin">Login here</button>
+                    </p>
+                </form>
+            </div>
+
+            <!-- Transition Overlay -->
+            <div class="transition-overlay" id="transitionOverlay">
+                <div class="transition-shards" id="transitionShards"></div>
+                <div class="transition-ring" id="transitionRing"></div>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
